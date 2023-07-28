@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
+<%@ include file="/common/taglib.jsp" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +11,11 @@
 
 <!-- Custom styles for this template -->
 <link href="<c:url value='/template/web/css/small-business.css'/>" rel="stylesheet" type="text/css">
+<!--phan trang -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+	<script src="<c:url value='/template/web/paging/jquery.twbsPagination.js'/>"></script>
+  
 </head>
 <body>
 	<!-- Navigation -->
@@ -26,5 +29,9 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="<c:url value='/template/web/vendor/jquery/jquery.min.js'/>"></script>
 	<script src="<c:url value='/template/web/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
+	<!-- edfdf -->
+
+	<script src="<c:url value='/template/web/paging/jquery.twbsPagination.min.js'/>"></script>
+
 </body>
 </html>

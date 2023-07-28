@@ -16,25 +16,20 @@ import com.vietnew360.mapper.RowMapper;
 
 public class AbstractDAO<T> implements GenericDAO<T> {
 
-	//ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
-	
-	public Connection getConnection() {
-		try {
-			/*Class.forName(resourceBundle.getString("driverName"));
-			String url = resourceBundle.getString("url");
-			String user = resourceBundle.getString("user");
-			String password = resourceBundle.getString("password");
-			return DriverManager.getConnection(url, user, password);*/
-			Class.forName("com.mysql.jdbc.Driver");
-			String url ="jdbc:mysql://localhost:3306/vietnew360";
-			String user ="root";
-			String password ="";
-			return DriverManager.getConnection(url, user, password);
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			return null;
-		}
-	}
+	// ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
+
+	/*
+	 * public Connection getConnection() { try {
+	 * Class.forName(resourceBundle.getString("driverName")); String url =
+	 * resourceBundle.getString("url"); String user =
+	 * resourceBundle.getString("user"); String password =
+	 * resourceBundle.getString("password"); return DriverManager.getConnection(url,
+	 * user, password); Class.forName("com.mysql.jdbc.Driver"); String url
+	 * ="jdbc:mysql://localhost:3306/vietnew360"; String user ="root"; String
+	 * password =""; return DriverManager.getConnection(url, user, password);
+	 * 
+	 * } catch (ClassNotFoundException | SQLException e) { return null; } }
+	 */
 
 	@Override
 	public <T> List<T> query(String sql, RowMapper<T> rowMapper, Object... parameters) {
@@ -43,7 +38,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
-			connection = getConnection();
+			//connection = getConnection();
 			statement = connection.prepareStatement(sql);
 			setParameter(statement, parameters);
 			resultSet = statement.executeQuery();
@@ -95,7 +90,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
-			connection = getConnection();
+			//connection = getConnection();
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql);
 			setParameter(statement, parameters);
@@ -130,7 +125,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		ResultSet resultSet = null;
 		try {
 			Long id = null;
-			connection = getConnection();
+			//connection = getConnection();
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			setParameter(statement, parameters);
@@ -174,7 +169,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		ResultSet resultSet = null;
 		try {
 			int count = 0;
-			connection = getConnection();
+		//	connection = getConnection();
 			statement = connection.prepareStatement(sql);
 			setParameter(statement, parameters);
 			resultSet = statement.executeQuery();

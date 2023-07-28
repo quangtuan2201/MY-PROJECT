@@ -21,7 +21,7 @@
               http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:component-scan
-		base-package="com.vietnew360.controller" />
+		base-package="com.vietnew360.controller,com.vietnew360.api" />
 
 	<mvc:annotation-driven />
 
@@ -35,5 +35,17 @@
 	</bean>
 	
 	<mvc:resources mapping="/template/**" location="/template/" />
+	 <!-- Cấu hình file upload resolver -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- Tối đa dung lượng file upload (bytes) -->
+        <property name="maxUploadSize" value="5242880"/> <!-- 5MB -->
+    </bean>
+
+    <!-- Định nghĩa giá trị cho fileUploadDir -->
+    <bean id="fileUploadDir" class="java.lang.String">
+        <constructor-arg value="C:\Users\ADMIN\eclipse-workspace\VietNews360\src\main\webapp\template\image"/>
+    </bean>
+	
+	
 	
 </beans>
