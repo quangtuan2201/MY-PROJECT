@@ -1,7 +1,0 @@
-package com.vietnew360.service;
-
-import java.util.Map;
-
-public interface ICategoryService {
-	Map<String, String> findAll();
-}
